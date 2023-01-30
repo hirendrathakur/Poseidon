@@ -31,8 +31,8 @@
 
     <bean id="sampleConfiguration" class="com.flipkart.poseidon.sample.api.config.SampleConfiguration">
         <property name="port" value="21000"/>
-        <property name="accessLogConfigFilePath" value="src/main/resources/external/log4j-access.xml"/>
-        <property name="apiFilesPath" value="src/main/resources/apis"/>
+        <property name="accessLogConfigFilePath" value="/Users/hirendra.thakur/workspace/Poseidon/sample/src/main/resources/external/log4j.xml"/>
+        <property name="apiFilesPath" value="/Users/hirendra.thakur/workspace/Poseidon/sample/src/main/resources/apis"/>
         <property name="jettyConfiguration" ref="sampleJettyConfiguration"/>
         <property name="tracingConfiguration" ref="sampleTracingConfiguration"/>
         <property name="headers" ref="sampleHeaders"/>

@@ -1,0 +1,28 @@
+{
+  "url": "/v1/get-exposure-meta",
+  "httpMethod": "GET",
+  "timeout": 10000,
+  "name": "abExposureMeta",
+  "params": {
+    "required": [
+      {
+        "name": "abTrackingId",
+        "datatype": "string"
+      }
+    ]
+  },
+  "tasks": {
+    "exposureTask": {
+      "name": "ABExposureDS_1.0.0",
+      "context": {
+        "abTrackingId": "{{$abTrackingId}}"
+      }
+    }
+  },
+  "filters": [
+    "BotFilter_1.0.0"
+  ],
+  "response": {
+    "exposureData": "{{$exposureTask}}"
+  }
+}

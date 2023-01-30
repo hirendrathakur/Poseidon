@@ -1,0 +1,34 @@
+{
+  "service": {
+    "baseUri": "/v2",
+    "description": [
+      "AB Service Client"
+    ]
+  },
+  "parameters": {
+    "abTrackingId": {
+      "type": "String",
+      "description": [
+        "tracking ID"
+      ]
+    }
+  },
+  "endPoints": {
+    "getExposureMeta": {
+      "httpMethod": "GET",
+      "uri": "/get-exposure-meta?abTrackingId={parameters.abTrackingId}",
+      "parameters": [
+        "abTrackingId"
+      ],
+      "responseObject": "Object",
+      "description": [
+        "Fetches an trackingId data"
+      ]
+    }
+  },
+  "exceptions": {
+    "400": "ABServiceBadRequest",
+    "404": "ABServiceResourceNotFound",
+    "500": "ABServiceFailure"
+  }
+}

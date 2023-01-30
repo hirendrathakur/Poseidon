@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Future;
 
@@ -148,7 +149,7 @@ public abstract class AbstractServiceClient implements ServiceClient {
                 new ServiceResponseDecoder<>(
                         getObjectMapper(), logger,
                         serviceResponseInfoMap, ServiceContext.getCollectedHeaders());
-        Future<TaskResult> future = taskContext.executeAsyncCommand(commandName, payload,
+        CompletableFuture<TaskResult> future = taskContext.executeAsyncCommandV2(commandName, payload,
                 params, serviceResponseDecoder);
 
         final Boolean throwOriginal = ServiceContext.get(ServiceClientConstants.THROW_ORIGINAL);

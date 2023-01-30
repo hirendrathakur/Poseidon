@@ -45,6 +45,25 @@
             </map>
         </property>
     </bean>
+
+    <bean class="com.flipkart.poseidon.handlers.http.impl.SinglePoolHttpTaskHandler">
+        <property name="poolName" value="ABService"/>
+        <property name="host" value="localhost"/>
+        <property name="port" value="2223"/>
+        <property name="connectionTimeout" value="5000"/>
+        <property name="operationTimeout" value="5000"/>
+        <property name="timeToLiveInSecs" value="60"/>
+    </bean>
+
+<!--    <bean class="com.flipkart.poseidon.sample.handlers.NonBlockingHttpHandler">-->
+<!--        <property name="poolName" value="ABService"/>-->
+<!--        <property name="host" value="10.47.0.146"/>-->
+<!--        <property name="port" value="80"/>-->
+<!--        <property name="connectionTimeout" value="5000"/>-->
+<!--        <property name="operationTimeout" value="5000"/>-->
+<!--        <property name="timeToLiveInSecs" value="60"/>-->
+<!--    </bean>-->
+
     <!--
     Comes from phantom's sample-task-proxy which just performs
     arithmetic operations and returns the result

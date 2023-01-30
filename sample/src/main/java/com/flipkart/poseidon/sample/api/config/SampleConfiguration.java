@@ -19,6 +19,9 @@ package com.flipkart.poseidon.sample.api.config;
 import com.flipkart.poseidon.api.*;
 import com.flipkart.poseidon.sample.commons.SampleConstants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SampleConfiguration implements Configuration {
 
     private int port;
@@ -40,6 +43,14 @@ public class SampleConfiguration implements Configuration {
     private Headers headers;
 
     private boolean isAccessLogEnabled;
+
+    @Override
+    public List<String> getResponseHeadersToCollect() {
+        return new ArrayList<String>() {{
+            add("X-FLIPKART-AB-IDS");
+            add("X-AB-IDS");
+        }};
+    }
 
     @Override
     public int getPort() {
@@ -120,7 +131,7 @@ public class SampleConfiguration implements Configuration {
     }
 
     @Override
-    public ExceptionMapper getExceptionMapper(){
+    public ExceptionMapper getExceptionMapper() {
         return exceptionMapper;
     }
 
